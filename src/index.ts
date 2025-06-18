@@ -1,0 +1,50 @@
+import express, { Express, Request, Response, NextFunction } from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import dotenv from 'dotenv';
+import path from 'path';
+import authRoutes from './routes/authRoutes';
+import adminRoutes from './routes/adminRoutes';
+import exampleRoutes from './routes/exampleRoutes';
+import postRoutes from './routes/postRoutes';
+import categoryRoutes from './routes/categoryRoutes';
+
+dotenv.config();
+
+const app: Express = express();
+
+// Middleware
+app.use(cors());
+app.use(helmet());
+app.use(morgan('dev'));
+app.use(express.json());
+
+// Serve static files from the public directory
+app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
+
+// Public routes
+app.use('/api/', authRoutes);
+
+// Blog routes
+app.use('/api/posts', postRoutes);
+
+// Category routes
+app.use('/api/categories', categoryRoutes);
+
+// Admin routes (protected)
+app.use('/api/admin', adminRoutes);
+
+// Example routes
+app.use('/api', exampleRoutes);
+
+// Error Handling
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Something went wrong!' });
+});
+
+const PORT: number = parseInt(process.env.PORT || '3000', 10);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
