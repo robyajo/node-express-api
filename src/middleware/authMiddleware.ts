@@ -1,18 +1,17 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import process from 'process';
+import { UserRole } from '@prisma/client';
 
-export interface JwtPayload {
-  id: string;
-  [key: string]: any;
-}
+// The type declaration is already in auth.ts, so we don't need to redeclare it here
+// We'll just import the necessary types and use them
 
-declare global {
-  namespace Express {
-    interface Request {
-      user?: JwtPayload;
-    }
-  }
+interface JwtUserPayload {
+  id: number;
+  name: string | null;
+  email: string;
+  role: UserRole;
+  iat?: number;
+  exp?: number;
 }
 
 export default (req: Request, res: Response, next: NextFunction) => {
@@ -20,8 +19,19 @@ export default (req: Request, res: Response, next: NextFunction) => {
   if (!token) return res.status(401).json({ message: 'No token provided' });
 
   try {
-    const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.JWT_SECRET || '') as JwtPayload;
-    req.user = decoded;
+    const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.JWT_SECRET || '') as JwtUserPayload;
+    
+    // Map the JWT payload to match our User type
+    req.user = {
+      id: decoded.id,
+      name: decoded.name,
+      email: decoded.email,
+      role: decoded.role,
+      // These will be added by the database when we fetch the user
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+    
     next();
   } catch (err) {
     res.status(401).json({ message: 'Invalid token' });
