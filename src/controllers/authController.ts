@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-
 import { PrismaClient, User as PrismaUser } from '@prisma/client';
 import { RegisterInput, LoginInput, User, AuthRequest } from '../types/auth';
 import { handleError } from '../utils/errorHandler';
+import { logError, logInfo } from '../utils/logger';
 
 declare global {
   namespace Express {
@@ -89,11 +89,26 @@ export const register = async (req: Request, res: Response): Promise<void> => {
     // Generate token
     const token = await generateAuthToken(user.id);
 
+    logInfo('User registered successfully', {
+      context: 'auth.registration',
+      userId: user.id,
+      email: user.email
+    });
+
     res.status(201).json({
       user: toUser(user),
       token,
     });
   } catch (err) {
+    logError('Registration failed', err, {
+      context: 'auth.registration',
+      request: {
+        method: req.method,
+        url: req.originalUrl,
+        body: { ...req.body, password: '[HIDDEN]' },
+        headers: req.headers
+      }
+    });
     handleError(res, 500, 'Error registering user');
   }
 };
@@ -119,11 +134,27 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     // Generate token
     const token = await generateAuthToken(user.id);
 
+    logInfo('User logged in successfully', {
+      context: 'auth.login',
+      userId: user.id,
+      email: user.email
+    });
+
     res.status(200).json({
       user: toUser(user),
       token,
     });
   } catch (err) {
+    logError('Login failed', err, {
+      context: 'auth.login',
+      request: {
+        method: req.method,
+        url: req.originalUrl,
+        body: { ...req.body, password: '[HIDDEN]' },
+        headers: req.headers
+      },
+      user: { email: req.body?.email || 'unknown' }
+    });
     handleError(res, 500, 'Error logging in');
   }
 };
@@ -156,8 +187,19 @@ export const logout = async (req: Request, res: Response): Promise<void> => {
       data: { isRevoked: true },
     });
 
+    logInfo('User logged out successfully', {
+      context: 'auth.logout',
+      userId: (req.user as PrismaUser)?.id,
+      token: token ? '***' : 'missing'
+    });
+
     res.status(200).json({ message: 'Logged out successfully' });
   } catch (err) {
+    logError('Logout failed', err, {
+      context: 'auth.logout',
+      token: req.token ? '***' : 'missing',
+      user: req.user ? { id: (req.user as PrismaUser).id } : 'unauthenticated'
+    });
     handleError(res, 500, 'Error logging out');
   }
 };

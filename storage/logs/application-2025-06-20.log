@@ -1,0 +1,30 @@
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:05:00.770Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:05:00.772Z"}
+{"environment":"development","level":"info","message":"Server is running on port 8000","pid":5992,"service":"node-api","timestamp":"2025-06-19T22:05:00.835Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:09:09.308Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:09:09.310Z"}
+{"environment":"development","level":"info","message":"Server is running on port 8000","pid":25664,"service":"node-api","timestamp":"2025-06-19T22:09:09.351Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:11:30.782Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:11:30.784Z"}
+{"environment":"development","level":"info","message":"Server is running on port 3000","pid":27284,"service":"node-api","timestamp":"2025-06-19T22:11:30.862Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:13:30.735Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:13:30.737Z"}
+{"environment":"development","level":"info","message":"Server is running on port 3000","pid":4172,"service":"node-api","timestamp":"2025-06-19T22:13:30.778Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:15:03.845Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:15:03.847Z"}
+{"environment":"development","level":"info","message":"Server is running on port 3000","pid":27436,"service":"node-api","timestamp":"2025-06-19T22:15:03.882Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:17:02.901Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:17:02.903Z"}
+{"environment":"development","level":"info","message":"Server is running on port 3000","pid":11900,"service":"node-api","timestamp":"2025-06-19T22:17:02.938Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:18:57.588Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:18:57.591Z"}
+{"environment":"development","level":"info","message":"Server is running on port 3000","pid":15744,"service":"node-api","timestamp":"2025-06-19T22:18:57.634Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:19:56.053Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:19:56.056Z"}
+{"environment":"development","level":"info","message":"Server is running on port 3000","pid":6276,"service":"node-api","timestamp":"2025-06-19T22:19:56.089Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:20:17.636Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:20:17.638Z"}
+{"environment":"development","level":"info","message":"Server is running on port 3000","pid":10416,"service":"node-api","timestamp":"2025-06-19T22:20:17.673Z"}
+{"context":"webrtc.controller","level":"info","message":"WebRTC Controller initialized","service":"node-api","timestamp":"2025-06-19T22:20:42.084Z"}
+{"context":"webrtc.routes","level":"info","message":"WebRTC routes initialized","service":"node-api","timestamp":"2025-06-19T22:20:42.086Z"}
+{"environment":"development","level":"info","message":"Server is running on port 3000","pid":28152,"service":"node-api","timestamp":"2025-06-19T22:20:42.119Z"}

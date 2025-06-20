@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "E:\\WSL\\node-api\\storage\\logs\\.3e24e75acdc6762540826d05d7b37ea7895c6baa-audit.json",
+    "files": [
+        {
+            "date": 1750368952533,
+            "name": "E:\\WSL\\node-api\\storage\\logs\\application-2025-06-20.log",
+            "hash": "c17c7ca149223cc9fc9f2cba00f68614b945f1c257eaa4b015b0355cc752eb1e"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -6,6 +6,7 @@
     "scripts": {
         "start": "node dist/index.js",
         "dev": "nodemon src/index.ts",
+        "demo": "node server.js",
         "build": "tsc",
         "prisma:generate": "prisma generate",
         "prisma:migrate": "prisma migrate dev",
@@ -21,7 +22,8 @@
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",
         "dotenv-safe": "^9.1.0",
-        "express": "^4.18.2",
+        "express": "^4.18.3",
+        "socket.io": "^4.7.4",
         "express-validator": "^7.2.1",
         "helmet": "^6.0.1",
         "jsonwebtoken": "^9.0.0",
@@ -31,6 +33,8 @@
         "swagger-ui-dist": "^5.25.2",
         "swagger-ui-express": "^5.0.1",
         "uuid": "^11.1.0",
+        "winston": "^3.17.0",
+        "winston-daily-rotate-file": "^5.0.0",
         "yamljs": "^0.3.0"
     },
     "devDependencies": {

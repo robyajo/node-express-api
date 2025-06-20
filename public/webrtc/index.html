@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebRTC Demo</title>
+    <base href="/webrtc/">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Join Meeting Screen -->
+    <div id="joinScreen" class="join-screen">
+        <div class="join-container">
+            <h1>Join Meeting</h1>
+            <div class="form-group">
+                <label for="displayName">Your Name</label>
+                <input type="text" id="displayName" placeholder="Enter your name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="meetingId">Meeting ID</label>
+                <input type="text" id="meetingId" placeholder="Enter meeting ID" class="form-control" value="">
+            </div>
+            <button id="joinBtn" class="btn btn-primary">Join</button>
+            <div class="create-meeting">
+                <p>Don't have a meeting ID? <a href="#" id="createMeeting">Create a new meeting</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App (initially hidden) -->
+    <div id="app" class="container" style="display: none;">
+        <h1>Meeting: <span id="meetingTitle">WebRTC Video Call</span></h1>
+        
+        <div class="video-container">
+            <div class="video-box">
+                <video id="localVideo" autoplay muted playsinline></video>
+                <div class="video-label">You</div>
+                <div class="video-overlay" id="localVideoOverlay">
+                    <div class="spinner"></div>
+                    <p>Loading camera...</p>
+                </div>
+            </div>
+            <div class="video-box">
+                <video id="remoteVideo" autoplay playsinline></video>
+                <div class="video-label">Remote</div>
+                <div class="video-overlay" id="remoteVideoOverlay">
+                    <p>Waiting for connection...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="form-group">
+                <label for="userId">Your ID:</label>
+                <input type="text" id="userId" readonly>
+                <button id="copyIdBtn">Copy ID</button>
+            </div>
+            
+            <div class="form-group">
+                <label for="remoteId">Remote ID:</label>
+                <input type="text" id="remoteId" placeholder="Enter remote user ID">
+            </div>
+            
+            <div class="button-group">
+                <button id="startBtn">Start Call</button>
+                <button id="callBtn" disabled>Call</button>
+                <button id="hangupBtn" disabled>Hang Up</button>
+            </div>
+            
+            <div class="button-group">
+                <button id="screenShareBtn">Share Screen</button>
+                <button id="toggleAudioBtn">Mute Audio</button>
+                <button id="toggleVideoBtn">Stop Video</button>
+            </div>
+        </div>
+        
+        <div class="status" id="status">Connecting to server...</div>
+        <div class="logs" id="logs"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/webrtc.js"></script>
+</body>
+</html>
